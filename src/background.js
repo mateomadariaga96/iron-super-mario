@@ -19,8 +19,22 @@ class Background {
   }
 
   draw() {
-    // draw image in X
-    // draw image again in in X + ¿?
+    this._ctx.drawImage(
+      this._img,
+      this.x,
+      this.y,
+      this.w,
+      this.h
+    )
+
+    this._ctx.drawImage(
+      this._img,
+      this.x + this.w,
+      this.y,
+      this.w,
+      this.h
+    )
+
   }
 
   move() {
@@ -30,6 +44,8 @@ class Background {
     this.x += this.vx
     this.y += this.vy
 
-    // if image out of canvas.... restart!
+    if (this.x + this.w <= 0) {
+      this.x = 0
+    }
   }
 }
